@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+
+  <ion-toolbar color="tertiary">
+
+    <br><ion-title>Calculadora de IMC – Índice de Massa Corpórea</ion-title><br>
+
+    <br><h3>Para melhor resultado do seu IMC, favor considerar o . na sua altura, ao invez da ,</h3><br>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-item>
+    <ion-input
+      label="Informe seu peso(kg):"
+      labelPlacement="floating"
+      placeholder="Informe seu peso"
+      [(ngModel)]="peso"
+    ></ion-input>
+  </ion-item>
+
+    <ion-item>
+      <ion-input
+        label="Informe sua altura:"
+        labelPlacement="floating"
+        placeholder="Informe sua altura"
+        [(ngModel)]="altura"
+      ></ion-input>
+    </ion-item>
+
+  <ion-button (click)="calcularImc()" color="tertiary">Calcular</ion-button>
+
+  <ion-item *ngIf="mensagem">
+    <ion-text color="{{cor}}">{{mensagem}}</ion-text>
+  </ion-item>
+
+</ion-content>
+

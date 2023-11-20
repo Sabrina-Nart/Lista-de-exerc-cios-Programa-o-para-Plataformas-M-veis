@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+
+  <ion-toolbar color="dark">
+
+    <br><ion-title>Lista de tarefas</ion-title><br>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+
+    <br><br><ion-input [(ngModel)]="item" placeholder="Digite uma tarefa"></ion-input>
+
+    <ion-button size="default" color="tertiary" (click)="adicionar()">Adicionar um novo item</ion-button>
+
+  </ion-item>
+
+
+  <ion-item *ngFor="let item of listaItens; let i = index" [class.concluido]="item.concluido"(click)="marcarConcluido(i)">
+
+    <ion-grid>
+      <ion-row>
+
+        <ion-col>
+
+          <span
+            [style.text-decoration]="item.concluido ? 'line-through' : 'none'"
+            [style.color]="item.concluido ? 'green' : 'red'">{{ item.texto }}
+          </span>
+
+        </ion-col>
+
+        <ion-col class="ion-text-end">
+
+          <ion-button color="danger" size="default" color="tertiary"
+              (click)="remover(i)">Excluir
+          </ion-button>
+
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+
+  </ion-item>
+
+</ion-content>

@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+
+  <ion-toolbar color="secondary">
+
+    <br><ion-title >Exercício 1</ion-title><br>
+
+    <h3>Calcule quantos quilômetros por litro um automóvel faz</h3>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <br><br>
+  <ion-item>
+    <ion-input
+      label="Informe a distância percorrida:"
+      labelPlacement="floating"
+      placeholder="Informe a distância percorrida"
+      [(ngModel)]="distancia"
+    ></ion-input>
+  </ion-item>
+
+    <br><br>
+    <ion-item>
+      <ion-input
+        label="Informe a quantidade de listros gastos:"
+        labelPlacement="floating"
+        placeholder="Informe a quantidade de listros gastos"
+        [(ngModel)]="litros"
+      ></ion-input>
+    </ion-item><br><br>
+
+    <ion-button (click)="calcularQuilometros()" color="secondary">Calcular</ion-button>
+
+  <ion-item *ngIf="mensagem">
+    <ion-text>{{mensagem}}</ion-text>
+  </ion-item>
+
+</ion-content>
+

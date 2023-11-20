@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+
+  <ion-toolbar color="warning">
+
+    <br><ion-title >Exercício 2</ion-title><br>
+
+    <h3>Calcule sua idade a partir do ano do seu nascimento</h3>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <br><br>
+  <ion-item>
+    <ion-input
+      label="Informe o ano do seu nascimento:"
+      labelPlacement="floating"
+      placeholder="Informe o ano do seu nascimento"
+      [(ngModel)]="anoNascimento"
+    ></ion-input>
+  </ion-item>
+
+
+  <ion-button (click)="calcularIdade()" color="warning">Calcular</ion-button>
+
+  <ion-button (click)="limpar()" color="warning">Limpar</ion-button>
+
+  <ion-item *ngIf="mensagem">
+    <ion-text>{{mensagem}}</ion-text>
+  </ion-item>
+
+</ion-content>

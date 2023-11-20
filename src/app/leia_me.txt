@@ -1,0 +1,55 @@
+--Iniciar projeto
+npm i -g @ionic/cli
+
+--Iniciar projeto e escolher template (blank(só home), tabs(3 abas), list(lista de mensagens))
+ionic start nome-do-projeto template
+
+--Criar componente ja com as rotas
+ionic generate page exercicio1Iniciar projeto
+
+--Como importar componente para usar em outro componente (Ex Exercicio1 usar na Home)
+Passo 1 - No @NgModule do componente filho, adicionar a configuração "exports: [ nome do component ], "
+
+codigo exemplo :
+import { Exercicio1Page } from './exercicio1.page';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    Exercicio1PageRoutingModule
+  ],
+  declarations: [Exercicio1Page],
+  exports:[Exercicio1Page],
+})
+export class Exercicio1PageModule {}
+
+Passo 2 - Importar o módulo do componente filho, no módulo do componente pai
+
+codigo-exemplo : 
+import { Exercicio1PageModule } from '../exercicio1/exercicio1.module';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    HomePageRoutingModule,
+    Exercicio1PageModule
+  ],
+  declarations: [HomePage]
+})
+export class HomePageModule {}
+
+Passo 3 - Usar o seletor do componente <app-exercicio1> diretamente no html do componente pai ou usar o routerLink 
+exemplo: 
+<a routerLink="/teste">Ir para Teste</a>
+<app-exercicio1></app-exercicio1>
+
+
+--Startar app
+ionic serve
+
+
+--Caso o componente fique em cima do menu, remover a instrução [fullscreen]="true" do componente filho
